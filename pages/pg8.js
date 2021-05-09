@@ -18,7 +18,7 @@ function pg8()
     stroke(255);
 
     var inc = .005;
-    var scrollSpeed = .03;
+    var scrollSpeed = .04;
     var yoff = start;
     var y;
 

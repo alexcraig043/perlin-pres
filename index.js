@@ -67,11 +67,11 @@ function styleButton(button, pos)
 {
     if (pos == true) 
     {
-        button.position(width / 60, height / 2);
+        button.position(width / 60, height / 2 - 25);
     } 
     else if (pos == false)
     {
-        button.position(56 * width / 60, height / 2);
+        button.position(56 * width / 60, height / 2 - 25);
     }
     else if (pos == "top")
     {
