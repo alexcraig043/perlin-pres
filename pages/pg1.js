@@ -1,9 +1,11 @@
-function setup()
+function pg1()
 {
     clear();
+    prevButton.hide();
     createCanvas(windowWidth, windowHeight);
     pixelDensity(1);
     background(51);
+    frameRate(60);
 
     textAlign(CENTER);
     textFont('Oswald');
@@ -12,14 +14,4 @@ function setup()
     textStyle(BOLD);
 
     text('What is Perlin Noise?', width / 2, height / 10);
-
-    nextButton = createButton('Next');
-    styleButton(nextButton, false);
-    nextButton.mouseClicked(nextPage);
-
-}
-
-function nextPage() 
-{
-    window.location.href = 'pg2.html';
 }
