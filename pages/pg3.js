@@ -5,7 +5,7 @@ function pg3()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(64);
+    textSize(width / 30);
     textStyle(BOLD);
     text("Noisy Movement", width / 2, height / 10);
 

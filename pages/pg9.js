@@ -3,6 +3,7 @@ var start = 0;
 function pg9()
 {
     background('#459c3a');
+    frameRate(60);
 
     noFill();
     stroke(255);
@@ -29,14 +30,14 @@ function pg9()
     textFont('Oswald');
     noStroke();
     fill(51);
-    textSize(64);
+    textSize(width / 30);
     textStyle(BOLD);
-    noStroke();
     text("Procedurally Generated Terrain!", width / 2, height / 10);
 
-    textSize(28);
+    textSize(width / 62);
     text("Octaves: " + octaveSlider.value(), width / 2, (6.95/8) * height);
 
     start += scrollSpeed;
+    loop();
 }
 

@@ -5,7 +5,7 @@ function pg5()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(64);
+    textSize(width / 30);
     noStroke();
     text("Let's Graph Randomness", width / 2, height / 10);
 
@@ -17,7 +17,7 @@ function pg5()
     beginShape();
     for (var x = 20; x < width; x+=20)
     {
-        y = random(height / 4, 3.5 * height / 4);
+        y = random(height / 5, 4 * height / 5);
         vertex(x, y);
         strokeWeight(12);
         point(x,y);

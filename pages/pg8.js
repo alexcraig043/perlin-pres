@@ -6,12 +6,12 @@ function pg8()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(64);
+    textSize(width / 30);
     textStyle(BOLD);
     noStroke();
     text("Octave Adjustment", width / 2, height / 10);
 
-    textSize(28);
+    textSize(width / 62);
     text("Octaves: " + octaveSlider.value(), width / 2, (6.95/8) * height);
 
     noFill();

@@ -6,7 +6,7 @@ function pg6()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(64);
+    textSize(width / 30);
     textStyle(BOLD);
     noStroke();
     text("Let's Graph Noise", width / 2, height / 10);

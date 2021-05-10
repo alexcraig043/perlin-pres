@@ -6,7 +6,7 @@ function pg7()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(64);
+    textSize(width / 30);
     textStyle(BOLD);
     noStroke();
     text("Let's Graph Noise and Time", width / 2, height / 10);
@@ -24,7 +24,7 @@ function pg7()
     beginShape();
     for (var x = 20; x < width; x+=20)
     {
-        y = map(noise(yoff), 0, 1, 0, height);
+        y = map(noise(yoff), 0, 1, height / 8, 7 * height / 8);
         vertex(x, y);
         strokeWeight(12);
         point(x,y);
