@@ -1,5 +1,5 @@
-var pages = [page1, page2, page3, page3_1, page4, page5, page6, page7, page7_1, page8, page9, page10, page11, page12];
-var pgIndex = 0;
+var pages = [page1, page2, page3, page3_1, page4, page5, page6, page7, page7_1, page8, page9, page10, page11, page12, page13];
+var pgIndex = 14;
 var loopToggle = false;
 var nextButton;
 var prevButton;
@@ -23,12 +23,16 @@ function draw()
 
 function nextPage()
 {
+    frameRate(60);
+    noLoop();
     pgIndex++;
     loop();
 }
 
 function prevPage()
 {
+    frameRate(60);
+    noLoop();
     pgIndex--;
     loop();
 }
@@ -56,6 +60,10 @@ function drawElements()
     octaveSlider = createSlider(1, 8, 4, 1);
     styleSlider(octaveSlider);
     hideOctave();
+
+    incSlider = createSlider(1, 10, 5, 1);
+    styleSlider(incSlider);
+    hideInc();
 }
 
 function styleButton(button, pos)
@@ -98,9 +106,18 @@ function styleButton(button, pos)
 
 function styleSlider(slider)
 {
-    slider.position(width / 2, (7/8) * height).center('horizontal');
+    slider.position(width / 2, (7.25/8) * height).center('horizontal');
 }
 
+function showInc()
+{
+    incSlider.show();
+}
+
+function hideInc()
+{
+    incSlider.hide();
+}
 
 function showReDraw()
 {
@@ -167,5 +184,6 @@ function page7_1() {hideOctave(); return pg7_1();}
 function page8() {showOctave(); return pg8();}
 function page9() {showOctave(); hideReDraw(); hideLoop(); return pg9();}
 function page10() {hideOctave(); showLoop(); return pg10();}
-function page11() {showLoop(); return pg11();}
-function page12() {showLoop(); return pg12();}
+function page11() {showLoop(); hideInc(); return pg11();}
+function page12() {showInc(); hideLoop(); return pg12();}
+function page13() {hideInc(); return pg13();}

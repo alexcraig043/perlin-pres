@@ -12,7 +12,7 @@ function pg8()
     text("Octave Adjustment", width / 2, height / 10);
 
     textSize(height / 30);
-    text("Octaves: " + octaveSlider.value(), width / 2, (6.95/8) * height);
+    text("Octaves: " + octaveSlider.value(), width / 2, (7.2/8) * height);
 
     noFill();
     stroke(255);

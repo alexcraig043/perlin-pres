@@ -1,6 +1,6 @@
-var rstart = Math.random()* 10000;
-var gstart = Math.random() * 10000;
-var bstart = Math.random() * 10000;
+let rstart = Math.random()* 10000;
+let gstart = Math.random() * 10000;
+let bstart = Math.random() * 10000;
 
 function pg12()
 {
@@ -15,7 +15,7 @@ function pg12()
     var gyoff = gstart;
     var byoff = bstart;
 
-    var inc = .1;
+    var inc = map(incSlider.value(), 0, 10, 0, .2);
     var speed = .03;
     
     for (var y = rows / 8 + 1; y < 7 * rows / 8 - 1; y++)
@@ -25,19 +25,20 @@ function pg12()
         var bxoff = bstart;
         for (var x = cols / 12; x < 11 * cols / 12 - 1; x++)
         {
-            var r = noise(rxoff, ryoff) * 255;
-            var g = noise(gxoff, gyoff) * 255;
-            var b = noise(bxoff, byoff) * 255;
+            var r = map(noise(rxoff, ryoff), 0 , 1, 0, 255);
+            var g = map(noise(gxoff, gyoff), 0 , 1, 0, 255);
+            var b = map(noise(bxoff, byoff), 0 , 1, 0, 255);
+            noStroke();
             fill(r, g, b);
             rect (x * scale, y * scale, scale, scale);
 
-            rxoff += inc;
+            rxoff -= inc;
             gxoff += inc;
             bxoff += inc;
         }
-        ryoff += inc;
+        ryoff -= inc;
         gyoff += inc;
-        byoff += inc;
+        byoff -= inc;
     }
 
     rstart += speed;
@@ -52,4 +53,7 @@ function pg12()
     textSize(height / 15);
     textStyle(BOLD);
     text("Noisy Rainbow", width / 2, height / 10);
+
+    textSize(height / 30);
+    text("Randomness: " + incSlider.value(), width / 2, (7.2/8) * height);
 }

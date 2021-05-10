@@ -19,6 +19,7 @@ function pg11()
         for (var x = cols / 12; x < 11 * cols / 12 - 1; x++)
         {
             var gScale = noise(xoff, yoff) * 255;
+            noStroke();
             fill(gScale);
             rect (x * scale, y * scale, scale, scale);
 
