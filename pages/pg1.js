@@ -10,7 +10,7 @@ function pg1()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
 
     text('What is Perlin Noise?', width / 2, height / 10);

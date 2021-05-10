@@ -30,11 +30,11 @@ function pg9()
     textFont('Oswald');
     noStroke();
     fill(51);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     text("Procedurally Generated Terrain!", width / 2, height / 10);
 
-    textSize(width / 62);
+    textSize(height / 30);
     text("Octaves: " + octaveSlider.value(), width / 2, (6.95/8) * height);
 
     start += scrollSpeed;

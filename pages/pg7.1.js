@@ -6,7 +6,7 @@ function pg7_1()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     noStroke();
     text("Noise vs Randomness", width / 2, height / 10);

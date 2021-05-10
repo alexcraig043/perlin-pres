@@ -22,7 +22,7 @@ function pg10()
     textFont('Oswald');
     noStroke();
     fill(255);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     text("Random Grayscale", width / 2, height / 10);
     frameRate(10);

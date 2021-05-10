@@ -8,14 +8,14 @@ function pg4()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     text("Noisy 2D Movement", width / 2, height / 10);
 
     var x = map(noise(xoff), 0, 1, 0, width);
     var y = map(noise(yoff), 0, 1, height / 10, height);
     noStroke();
-    ellipse(x, y, 64, 64);
+    ellipse(x, y, height / 15, height / 15);
     xoff += .01;
     yoff += .01;
 }

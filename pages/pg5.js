@@ -5,7 +5,7 @@ function pg5()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(width / 30);
+    textSize(height / 15);
     noStroke();
     text("Let's Graph Randomness", width / 2, height / 10);
 

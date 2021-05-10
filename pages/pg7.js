@@ -6,7 +6,7 @@ function pg7()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     noStroke();
     text("Let's Graph Noise and Time", width / 2, height / 10);

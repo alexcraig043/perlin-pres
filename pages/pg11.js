@@ -33,7 +33,7 @@ function pg11()
     textFont('Oswald');
     noStroke();
     fill(gScale);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     text("Noisy Grayscale: 2D Noise", width / 2, height / 10);
 }

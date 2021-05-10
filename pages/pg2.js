@@ -5,14 +5,14 @@ function pg2()
     textAlign(CENTER);
     textFont('Oswald');
     fill(255);
-    textSize(width / 32);
+    textSize(height / 15);
     textStyle(BOLD);
     text("Random Movement", width / 2, height / 10);
 
     frameRate(30);
     var x = random(width / 2 - width / 3, width / 2 + width / 3);
     noStroke();
-    ellipse(x, height / 2, 64, 64);
+    ellipse(x, height / 2, height / 15,  height / 15);
 }
 
 

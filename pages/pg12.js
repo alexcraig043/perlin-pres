@@ -49,7 +49,7 @@ function pg12()
     textFont('Oswald');
     noStroke();
     fill(r, g, b);
-    textSize(width / 30);
+    textSize(height / 15);
     textStyle(BOLD);
     text("Noisy Rainbow", width / 2, height / 10);
 }
