@@ -1,6 +1,8 @@
-var pages = [page1, page2, page3, page3_1, page4, page5, page6, page7, page7_1, page8, page9, page10, page11, page12, page13];
-var pgIndex = 14;
-var loopToggle = false;
+var pages = [page1, page2, page3, page3_1, page4, 
+        page5, page6, page7, page7_1, page8, page9, 
+        page10, page11, page12, page13, page14, page15];
+var pgIndex = 0;
+var loopToggle = true;
 var nextButton;
 var prevButton;
 var reDrawButton;
@@ -14,6 +16,7 @@ function setup()
     frameRate(60);
 
     drawElements();
+    hideElements();
 }
 
 function draw()
@@ -23,17 +26,17 @@ function draw()
 
 function nextPage()
 {
-    frameRate(60);
-    noLoop();
     pgIndex++;
+    loopToggle = true;
+    hideElements();    
     loop();
 }
 
 function prevPage()
 {
-    frameRate(60);
-    noLoop();
     pgIndex--;
+    loopToggle = true;
+    hideElements();    
     loop();
 }
 
@@ -50,20 +53,16 @@ function drawElements()
     reDrawButton = createButton('Redraw');
     styleButton(reDrawButton, 'bottom');
     reDrawButton.mouseClicked(redraw);
-    hideReDraw();
 
     loopButton = createButton('Loop');
     styleButton(loopButton, 'bottom');
     loopButton.mouseClicked(toggleLoop);
-    hideLoop();
 
     octaveSlider = createSlider(1, 8, 4, 1);
     styleSlider(octaveSlider);
-    hideOctave();
 
     incSlider = createSlider(1, 10, 5, 1);
     styleSlider(incSlider);
-    hideInc();
 }
 
 function styleButton(button, pos)
@@ -78,7 +77,7 @@ function styleButton(button, pos)
     }
     else if (pos == "bottom")
     {
-        button.position(width / 2 - 1.1 * button.width, 7 * height / 8);
+        button.position(width / 2 - 1.1 * button.width, 7.25 * height / 8);
     }
     button.style('background-color: #e65a5a');
     button.style('border: none');
@@ -109,14 +108,17 @@ function styleSlider(slider)
     slider.position(width / 2, (7.25/8) * height).center('horizontal');
 }
 
+function hideElements()
+{
+    reDrawButton.hide();
+    loopButton.hide();
+    octaveSlider.hide();
+    incSlider.hide();
+}
+
 function showInc()
 {
     incSlider.show();
-}
-
-function hideInc()
-{
-    incSlider.hide();
 }
 
 function showReDraw()
@@ -124,19 +126,14 @@ function showReDraw()
     reDrawButton.show();
 }
 
-function hideReDraw()
-{
-    reDrawButton.hide();
-}
-
 function showOctave()
 {
     octaveSlider.show();
 }
 
-function hideOctave()
+function showLoop()
 {
-    octaveSlider.hide();
+    loopButton.show();
 }
 
 function toggleLoop()
@@ -153,37 +150,31 @@ function toggleLoop()
     }
 }
 
-function showLoop()
-{
-    loopButton.show();
-}
-
-function hideLoop()
-{
-    loopButton.hide();
-}
-
 function windowResized()
 {
     removeElements();
     resizeCanvas(windowWidth, windowHeight);
     drawElements();
+    hideElements();
+    pages[pgIndex]();
 }
 
-/** Functions to return each page and show/hide their elements*/
+/** Functions to return each page and show their elements*/
 function page1() {return pg1();}
 function page2() {return pg2();}
 function page3() {return pg3();}
 function page3_1() {return pg3_1();}
 function page4() {return pg4();}
-function page4() {hideReDraw(); return pg4();}
+function page4() {return pg4();}
 function page5() {showReDraw(); return pg5();}
 function page6() {showReDraw(); return pg6();}
-function page7() {hideReDraw(); return pg7();}
-function page7_1() {hideOctave(); return pg7_1();}
+function page7() {return pg7();}
+function page7_1() {return pg7_1();}
 function page8() {showOctave(); return pg8();}
-function page9() {showOctave(); hideReDraw(); hideLoop(); return pg9();}
-function page10() {hideOctave(); showLoop(); return pg10();}
-function page11() {showLoop(); hideInc(); return pg11();}
-function page12() {showInc(); hideLoop(); return pg12();}
-function page13() {hideInc(); return pg13();}
+function page9() {showOctave(); return pg9();}
+function page10() {showLoop(); return pg10();}
+function page11() {showLoop(); return pg11();}
+function page12() {showInc(); return pg12();}
+function page13() {showReDraw(); return pg13();}
+function page14() {showLoop(); return pg14();}
+function page15() {return pg15();}``

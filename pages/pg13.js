@@ -1,17 +1,17 @@
-var start = Math.random() * 10000;
 
 function pg13()
 {
     background(51);
     frameRate(60);
-    var scale = width / 200;
+    var scale = width / 800;
     var cols, rows;
     cols = floor(width / scale);
     rows = floor(height / scale);
     
+    var start = Math.random() * 10000;
     var yoff = start;
-    var inc = .1;
-    var speed = .0015;
+    var inc = .015;
+    var speed = .001;
 
     noiseDetail(4, .5);
     
@@ -23,7 +23,7 @@ function pg13()
             noStroke();
             var terrain = map(noise(xoff, yoff), 0, 1, 0, 100);
 
-            if (terrain < 30)
+            if (terrain < 35)
             {
                 fill('#006994');
             }
