@@ -1,4 +1,4 @@
-class Particle
+class Boat
 {
     constructor() 
     {
@@ -25,10 +25,9 @@ class Particle
         this.show = function()
         {
             stroke(255);
-            strokeWeight(1);
-            line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+            strokeWeight(50);
             this.updatePrev();
-            //point(this.pos.x, this.pos.y);
+            point(this.pos.x, this.pos.y);
         }
     
         this.updatePrev = function() 
@@ -61,12 +60,13 @@ class Particle
             }
         }
 
-        this.follow = function(vectors)
+        this.follow = function(vectors, scl, cols)
         {
             var x = floor(this.pos.x / scl);
             var y = floor(this.pos.y / scl);
             var index = x + y * cols;
             var force = vectors[index];
+            console.log(force)
             this.applyForce(force);
         }
     }

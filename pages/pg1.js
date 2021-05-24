@@ -1,11 +1,9 @@
 function pg1()
 {
     clear();
-    prevButton.hide();
-    createCanvas(windowWidth, windowHeight);
+    prevButton.show();
     pixelDensity(1);
     background(51);
-    frameRate(60);
 
     textAlign(CENTER);
     textFont('Oswald');
@@ -13,5 +11,10 @@ function pg1()
     textSize(height / 15);
     textStyle(BOLD);
 
-    text('What is Perlin Noise?', width / 2, height / 10);
+    text('Perlin Noise', width / 2, height / 10);
+
+    let scale = width / 4;
+    let ratio = 251 / 201;
+
+    image(vaseImg, width / 2.7, height / 5, scale, scale * ratio)
 }

@@ -2,6 +2,7 @@ var zoff = 0;
 
 function pg14()
 {
+
     background(51);
     var scl = width / 60;
     var cols, rows;
@@ -13,10 +14,10 @@ function pg14()
     var flowField = [];
 
     var yoff = 0;
-    for (var y = 0; y < rows; y++)
+    for (var y = .5; y < rows; y++)
     {
         var xoff = 0;
-        for (var x = 0; x < cols; x++)
+        for (var x = .5; x < cols; x++)
         {
             var index = (x + y * cols);
             var angle = noise(xoff, yoff, zoff) * TWO_PI * 2;
