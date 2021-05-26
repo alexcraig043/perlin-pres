@@ -1,9 +1,7 @@
-var drawPages = [page0, page1, page2, page3, page3_1, page4, 
+var pages = [page0, page1, page2, page3, page3_1, page4, 
         page5, page6, page7, page7_1, page8, page9, 
-        page10, page11, page12, page13, page14, page15, page16];
-// var setupPages = [pageSetup1, pageSetup2, pageSetup3, pageSetup3_1, pageSetup4, 
-//         pageSetup5, pageSetup6, pageSetup7, pageSetup7_1, pageSetup8, pageSetup9, 
-//         pageSetup10, pageSetup11, pageSetup12, pageSetup13, pageSetup14, pageSetup15, pageSetup16];
+        page10, page11, page12, page13, page14, page15, page16, page17];
+
 var pgIndex = 0;
 var loopToggle = true;
 var nextButton;
@@ -12,11 +10,19 @@ var reDrawButton;
 var octaveSlider;
 var vaseImg;
 var mcImg;
+var artImg;
+var boat;
+var flowFieldToggle = 1;
+var particles = [];
+var particles2 = [];
+var numParticles = 500;
+var numParticles2 = 2000;
 
 function preload()
 {
     vaseImg = loadImage('assets/vase.png');
     mcImg = loadImage('assets/minecraft.jpg');
+
 }
 
 function setup()
@@ -26,6 +32,18 @@ function setup()
     pixelDensity(1);
     frameRate(60);
 
+    boat = new Particle('large');
+
+    for (var i = 0; i < numParticles; i++)
+    {
+        particles[i] = new Particle('small');
+    }
+
+    for (var i = 0; i < numParticles2; i++)
+    {
+        particles2[i] = new Particle();
+    }
+
     drawElements();
     hideElements();
 
@@ -33,8 +51,7 @@ function setup()
 
 function draw()
 {
-    console.log(pgIndex);
-    drawPages[pgIndex]();
+    pages[pgIndex]();
 }
 
 function nextPage()
@@ -80,6 +97,10 @@ function drawElements()
     loopButton = createButton('Loop');
     styleButton(loopButton, 'bottom');
     loopButton.mouseClicked(toggleLoop);
+
+    flowFieldButton = createButton('Flowfield');
+    styleButton(flowFieldButton, 'bottom');
+    flowFieldButton.mouseClicked(toggleFlowField);
 
     octaveSlider = createSlider(1, 8, 4, 1);
     styleSlider(octaveSlider);
@@ -137,6 +158,7 @@ function hideElements()
     loopButton.hide();
     octaveSlider.hide();
     incSlider.hide();
+    flowFieldButton.hide();
 }
 
 function showInc()
@@ -159,6 +181,11 @@ function showLoop()
     loopButton.show();
 }
 
+function showFlowField()
+{
+    flowFieldButton.show();
+}
+
 function toggleLoop()
 {
     if (loopToggle) 
@@ -170,6 +197,18 @@ function toggleLoop()
     {
         loop();
         loopToggle = true;
+    }
+}
+
+function toggleFlowField()
+{
+    if (flowFieldToggle == 0)
+    {
+        flowFieldToggle = 1;
+    }
+    else
+    {
+        flowFieldToggle = 0;
     }
 }
 
@@ -201,26 +240,6 @@ function page11() {showLoop(); return pg11();}
 function page12() {showInc(); return pg12();}
 function page13() {showReDraw(); return pg13();}
 function page14() {showLoop(); return pg14();}
-function page15() {return pg15();}
-function page16() {return pg16();}
-
-// /** Function to set up variables and objects for each page*/
-// function pageSetup1() {}
-// function pageSetup2() {}
-// function pageSetup3() {}
-// function pageSetup3_1() {}
-// function pageSetup4() {}
-// function pageSetup4() {}
-// function pageSetup5() {}
-// function pageSetup6() {}
-// function pageSetup7() {}
-// function pageSetup7_1() {}
-// function pageSetup8() {}
-// function pageSetup9() {}
-// function pageSetup10() {}
-// function pageSetup11() {}
-// function pageSetup12() {}
-// function pageSetup13() {}
-// function pageSetup14() {}
-// function pageSetup15() {return pgSetup15();}
-// function pageSetup16() {}
+function page15() {showFlowField(); return pg15();}
+function page16() {showFlowField(); return pg16();}
+function page17() {return pg17();}

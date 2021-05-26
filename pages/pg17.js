@@ -1,8 +1,6 @@
-var zoff = 0;
-
-function pg14()
+function pg17()
 {
-    background(51);
+    nextButton.hide();
     var scl = width / 60;
     var cols, rows;
     cols = floor(width / scl);
@@ -18,30 +16,24 @@ function pg14()
         var xoff = 0;
         for (var x = .5; x < cols; x++)
         {
-            var index = (x + y * cols);
+            var index = floor(x + y);
             var angle = noise(xoff, yoff, zoff) * TWO_PI * 2;
             var v = p5.Vector.fromAngle(angle);
-            v.setMag(.2);
+            v.setMag(.15);
             flowField[index] = v;
             xoff += inc;
 
-            stroke(255, 200);
-            push();
-            translate(x * scl, y * scl);
-            rotate(v.heading());
-            strokeWeight(1);
-            line(0, 0, scl - (scl / 5), 0);
-            pop();
         }
         yoff += inc;
         zoff += timeSpeed;
     }
 
-    textAlign(CENTER);
-    textFont('Oswald');
-    noStroke();
-    fill(255);
-    textSize(height / 15);
-    textStyle(BOLD);
-    text("Vector Flow Field", width / 2, height / 10);
+    
+    for (var i = 0; i < particles2.length; i++) 
+    {
+        particles2[i].follow(flowField, scl);
+        particles2[i].update();
+        particles2[i].edges();
+        particles2[i].show();
+    }
 }
