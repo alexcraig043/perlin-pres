@@ -34,9 +34,8 @@ class Particle
             {
                 stroke('#a0e65a');
                 strokeWeight(height / 15);
-                line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
-                this.updatePrev();
                 point(this.pos.x, this.pos.y);
+                this.updatePrev();
             }
         }
         else if (size === 'small')
@@ -53,8 +52,8 @@ class Particle
 
                 stroke(r, g, b, 255);
                 strokeWeight(height / 80);
-                this.updatePrev();
                 point(this.pos.x, this.pos.y);
+                this.updatePrev();
 
                 rstart += inc;
                 gstart += inc;
